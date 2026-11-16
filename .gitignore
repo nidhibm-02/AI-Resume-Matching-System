@@ -1,0 +1,32 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Backend virtual environment
+backend/venv/
+venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Frontend dependencies
+frontend/node_modules/
+
+# Frontend build files
+frontend/dist/
+
+# Uploaded resume files and temporary data
+uploads/
+*.tmp
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
