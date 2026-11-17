@@ -39,8 +39,6 @@ def extract_years(text):
 
 
 def calculate_experience_score(job_description, resume_text):
-    jd_lower = job_description.lower()
-
     required_years = extract_years(job_description)
 
     profile_experience = extract_experience(resume_text)
@@ -52,27 +50,13 @@ def calculate_experience_score(job_description, resume_text):
     else:
         candidate_years = extract_years(resume_text)
 
-    # Check whether freshers are explicitly eligible
-    fresher_allowed = bool(
-        re.search(
-            r"\bfreshers?\b|"
-            r"\bno experience required\b|"
-            r"\b0\s*(?:-|to)\s*1\s*years?\b",
-            jd_lower
-        )
-    )
-
     # Calculate experience score
     if required_years == 0:
         score = 100.0
-
-    elif fresher_allowed and candidate_years == 0:
-        score = 100.0
-
     else:
         score = min(
             (candidate_years / required_years) * 100,
-            100
+            100.0
         )
 
     return {
