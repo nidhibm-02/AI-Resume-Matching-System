@@ -1,12 +1,12 @@
 
 import re
-from sentence_transformers import SentenceTransformer
+from onnx_embedding import engine
 from sklearn.metrics.pairwise import cosine_similarity
 from skill_extractor import SKILLS
 from profile_extractor import extract_qualification, extract_experience
 
 # Load the pretrained model once
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = engine
 
 
 def calculate_similarity(job_description, resume_text):
